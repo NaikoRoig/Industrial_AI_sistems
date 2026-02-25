@@ -1,0 +1,19 @@
+FUNCTION_BLOCK FB_AlphaFactory_L1
+VAR_INPUT
+  P01_FBK : BOOL; // Pump Running Feedback
+  P01_FLT : BOOL; // Pump Fault
+  V01_LS_OPEN : BOOL; // Limit Switch Open
+  V01_LS_CLOSED : BOOL; // Limit Switch Closed
+END_VAR
+VAR_OUTPUT
+  P01_RUN : BOOL;
+  V01_OPEN : BOOL;
+  V01_CLOSE : BOOL;
+END_VAR
+BEGIN
+// Automated Interlock Synthesis
+// Rule: Interlock Stop if Fault is True for PUMP_01
+IF PUMP01_FLT THEN PUMP01_RUN := FALSE; END_IF;
+// Rule: Mismatched State Alarm for VALVE_01
+IF VALVE01_OPEN AND VALVE01_CLOSE THEN VALVE01_ALM_CONFIG := TRUE; END_IF;
+END_FUNCTION_BLOCK

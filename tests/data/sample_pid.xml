@@ -1,0 +1,13 @@
+<PIDProject name="AlphaFactory_L1">
+    <Equipment name="PUMP_01" type="CentrifugalPump">
+        <Signal tag="P01_RUN" desc="Pump Start Command" type="BOOL" io="DO" />
+        <Signal tag="P01_FBK" desc="Pump Running Feedback" type="BOOL" io="DI" />
+        <Signal tag="P01_FLT" desc="Pump Fault" type="BOOL" io="DI" />
+    </Equipment>
+    <Equipment name="VALVE_01" type="DigitalValve">
+        <Signal tag="V01_OPEN" desc="Open Valve" type="BOOL" io="DO" />
+        <Signal tag="V01_CLOSE" desc="Close Valve" type="BOOL" io="DO" />
+        <Signal tag="V01_LS_OPEN" desc="Limit Switch Open" type="BOOL" io="DI" />
+        <Signal tag="V01_LS_CLOSED" desc="Limit Switch Closed" type="BOOL" io="DI" />
+    </Equipment>
+</PIDProject>
